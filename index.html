@@ -28,29 +28,27 @@
                    - La definición <dd> será la propiedad "value"
             -->
             <div class="jumbotron">
-                <h1 id="title">Movie List</h1>
-                
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>
+                <h1 id="title">{{ col.collection.title }}</h1>
+            </div>
 
-                <div class="card" style="width: 18rem;">
+                <div class="card" v-for="i in col.collection.items" style="width: 18rem;">
                     <div class="card-body">
-                      <a href="https://en.wikipedia.org/wiki/The_Hunger_Games_(film_series)" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>>
+                        <dl>
+                          <div v-for="datos in i.data">
+                            <dt>{{ datos.prompt }}</dt>
+                            <dd>{{ datos.value }}</dd>
+                          </div>
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)" class="btn btn-primary">Ver</a>
+                        </dl>
+                        <a v-bind:href="i.href">Ver</a>
                     </div>
                 </div>
 
                   
-            </div>
+            
+        
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="./js/script.js"></script>
     </body>
 
 </html>
